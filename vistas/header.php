@@ -185,7 +185,7 @@ if (strlen(session_id()) < 1)
               </a>
               <ul class="treeview-menu">
               <li id="lProyecto"><a href="indexproyecto2.php"><i class="fa fa-circle-o"></i> Proyectos</a></li>
-              <li id="lHadwarede"><a href="indexHadware.php"><i class="fa fa-circle-o"></i> Hadware</a></li>
+              <li id="lHadwarede"><a href="indexHadware.php"><i class="fa fa-circle-o"></i> Hardware</a></li>
               <li id="lPersonal"><a href="personal.php"><i class="fa fa-circle-o"></i> Personal</a></li>
               </ul>
             </li>';
