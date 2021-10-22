@@ -55,41 +55,31 @@ if ($_SESSION['escritorio']==1 or $_SESSION['cliente_ultratel']==1 )
 
                     <div class="panel-body">
 
-                      <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <div class="small-box bg-red">
-                            <div class="inner">
-                              <H3>LTE 700</H3></br>
-                              <div class="icon">
-                           <i class="fa fa-sitemap"></i>
-                         </div>
 
-                         <h4 style="font-size:10;">
-                                <strong>-Estaciones Base</strong>
-                              </h4>
-                            </div>
-                            <div class="icon">
-                              <i class="ion ion-bag"></i>
-                            </div>
-                            <a href="ultratel_site700.php" class="small-box-footer">Ingresar <i class="fa fa-arrow-circle-right"></i></a>
+                    <div  class="form-group col-lg-2 col-md-4 col-sm-4 col-xs-4" >
+                      <a href="inicioAsecones.php" title="NOKIA" style="text-decoration:none;">
+                      <img src="../public/images/nokia1.png" class="card-img-top" alt="..."onmouseover="this.src='../public/images/nokia2.png'" onmouseout="this.src='../public/images/nokia1.png' " style="width:100px; height:100px;" >
+                        <div class="card">
+                          <div class="card-body">
+                          <font face="arial" size="-1" color="black"><p margin-right="100px">&nbsp  &nbsp &nbsp  &nbsp NOKIA<p></font>
+                            <!-- <h2 class="card-title">Articulos</h2> -->
                           </div>
+                        </div>
                       </div>
-                      <!-- <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
-                        <div class="small-box bg-red">
-                        <div class="inner">
-                              <H3>LTE 2600</H3></br>
-                              <div class="icon">
-                           <i class="fa fa-sitemap"></i>
-                         </div>
-                         <h4 style="font-size:10;">
-                         <strong>-Estaciones Base  </strong>
-                              </h4>
-                            </div>
-                            <div class="icon">
-                              <i class="ion ion-bag"></i>
-                            </div>
-                            <a href="site2600.php" class="small-box-footer">Ingresar<i class="fa fa-arrow-circle-right"></i></a>
+
+
+                    <div  class="form-group col-lg-2 col-md-4 col-sm-4 col-xs-4" >
+                      <a href="articulo.php" title="CLARO" style="text-decoration:none;">
+                      <img src="../public/images/claro01.png" class="card-img-top" alt="..."onmouseover="this.src='../public/images/claro02.png'" onmouseout="this.src='../public/images/claro01.png' " style="width:100px; height:100px;" >
+                        <div class="card">
+                          <div class="card-body">
+                          <font face="arial" size="-1" color="black"><p margin-right="100px">&nbsp &nbsp &nbsp &nbsp CLARO</p></font>
+                            <!-- <h2 class="card-title">Articulos</h2> -->
                           </div>
-                      </div> -->
+                        </div>
+                      </div>
+
+                     
                       </div>
                     </div>
                        </div>
