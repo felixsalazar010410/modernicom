@@ -876,6 +876,17 @@ if (!isset($_SESSION["nombre"])) {
 				}
 				break;
 
+				case "selectsyf_documentador":
+					require_once "../modelos/Persona.php";
+					$persona = new Persona();
+	
+					$rspta = $persona->selectsyf_documentador();
+	
+					while ($reg = $rspta->fetch_object()) {
+						echo '<option value=' . $reg->idpersona . '>' . $reg->nombre . '</option>';
+					}
+					break;
+
 			case "selectDocumentador":
 				require_once "../modelos/Persona.php";
 				$persona = new Persona();

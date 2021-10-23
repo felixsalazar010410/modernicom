@@ -198,6 +198,7 @@ if (strlen(session_id()) < 1)
               <ul class="treeview-menu">
               <li id="lProyectosyf"><a href="indexproyecto3.php"><i class="fa fa-circle-o"></i> Proyectos</a></li>
               <li id="lHadwarede"><a href="indexHadware.php"><i class="fa fa-circle-o"></i> Logistica</a></li>
+              <li id="lPersona2"><a href="personalsyf.php"><i class="fa fa-circle-o"></i> Personal</a></li>
               </ul>
             </li>';
           }

@@ -64,7 +64,13 @@ Class Persona
 	//Implementar un método para listar los registros 
 	public function listarc()
 	{
-		$sql="SELECT * FROM persona WHERE tipo_persona='Cliente'";
+		$sql="SELECT * FROM persona WHERE tipo_persona='Cliente' and  empresa='MODERNICOM'";
+		return ejecutarConsulta($sql);		
+	}
+
+	public function listarsyf()
+	{
+		$sql="SELECT * FROM persona WHERE tipo_persona='Cliente' and  empresa='SYF'";
 		return ejecutarConsulta($sql);		
 	}
 
@@ -83,6 +89,18 @@ Class Persona
 	public function selectDocumentador()
 	{
 		$sql="SELECT * FROM persona where cargo='DOCUMENTADOR'and estado=1 ";
+		return ejecutarConsulta($sql);		
+	}
+
+	public function selectsyf_supurvisor()
+	{
+		$sql="SELECT * FROM persona where empresa='SYF' and cargo='SUPERVISOR'and estado=1 ";
+		return ejecutarConsulta($sql);		
+	}
+
+	public function selectsyf_documentador()
+	{
+		$sql="SELECT * FROM persona where empresa='SYF' and cargo='DOCUMENTADOR'and estado=1 ";
 		return ejecutarConsulta($sql);		
 	}
 }

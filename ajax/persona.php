@@ -161,6 +161,44 @@ switch ($_GET["op"]){
 	break;
 
 
+	case 'listarsyf':
+		$rspta=$persona->listarsyf();
+ 		//Vamos a declarar un array
+		 $data= Array();
+		 
+		
+
+ 		while ($reg=$rspta->fetch_object()){
+ 			$data[]=array(
+ 				"0"=>($reg->estado)?'<button class="btn btn-warning" onclick="mostrar('.$reg->idpersona.')"><i class="fa fa-pencil"></i></button>'.
+				 ' <button class="btn btn-danger" onclick="desactivar('.$reg->idpersona.')"><i class="fa fa-close"></i></button>':
+				 '<button class="btn btn-warning" onclick="mostrar('.$reg->idpersona.')"><i class="fa fa-pencil"></i></button>'.
+				 ' <button class="btn btn-primary" onclick="activar('.$reg->idpersona.')"><i class="fa fa-check"></i></button>',
+				"1"=>"<img src='../files/personal/".$reg->imagen."' height='50px' width='50px' >",
+ 				"2"=>$reg->nombre,
+ 				"3"=>$reg->tipo_documento,
+ 				"4"=>$reg->num_documento,
+ 				"5"=>$reg->telefono,
+				"6"=>$reg->email,
+				"7"=>$reg->cargo,
+				"8"=>($reg->estado)?'<span class="label bg-green">Activo</span>':
+				'<span class="label bg-red">Inactivo</span>'
+ 				);
+		 }
+		
+	
+		 
+
+ 		$results = array(
+ 			"sEcho"=>1, //Información para el datatables
+ 			"iTotalRecords"=>count($data), //enviamos el total registros al datatable
+ 			"iTotalDisplayRecords"=>count($data), //enviamos el total registros a visualizar
+ 			"aaData"=>$data);
+ 		echo json_encode($results);
+
+	break;
+
+
 }
 //Fin de las validaciones de acceso
 }

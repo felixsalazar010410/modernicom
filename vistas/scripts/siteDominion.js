@@ -76,7 +76,7 @@ $.post("../ajax/site.php?op=selectUsuario", function(r){
 });
 
 //Cargamos los items al select persona
-$.post("../ajax/site.php?op=selectDocumentador", function(r){
+$.post("../ajax/site.php?op=selectsyf_documentador", function(r){
 	$("#documentador").html(r);
 	$('#documentador').selectpicker('refresh');
 
