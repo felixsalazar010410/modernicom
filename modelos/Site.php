@@ -13,7 +13,7 @@ require "../config/Conexion.php";
 	{
 		$sql="INSERT INTO site (idproyecto,codigo,nombre,lider_cuadrilla,estado_campo,actividad,observaciones_campo,documentador,doc_pre,doc_post,observaciones_doc,auditor,estado_nokia,observaciones_nokia,imagen,imagen2,imagen3,imagen4,imagen5,imagen6,imagen7,imagen8,imagen9,imagen10,imagen11,imagen12,imagen13,condicion)
 
-		VALUES ('$idproyecto','$codigo','$nombre','$lider_cuadrilla','$estado_campo','$actividad','$observaciones_campo','$documentador','$doc_pre','$doc_post','$observaciones_doc','$auditor','$estado_nokia','$observaciones_nokia','$imagen','$imagen2','$imagen3','$imagen4','$imagen5','$imagen6','$imagen7','$imagen8','$imagen9','$imagen10','$imagen11','$imagen12','$imagen13','1')";
+		VALUES ('$idproyecto','$codigo','$nombre','$lider_cuadrilla','$estado_campo','$actividad','$observaciones_campo','$documentador','$doc_pre','$doc_post','$observaciones_doc','$auditor','$estado_nokia','$observaciones_nokia','$imagen','$imagen2','$imagen3','$imagen4','$imagen5','$imagen6','$imagen7','$imagen8','$imagen9','$imagen10','$imagen11','$imagen12','$imagen13','0')";
 		return ejecutarConsulta($sql);
 	}
 
@@ -112,15 +112,23 @@ require "../config/Conexion.php";
 	public function listar700()
 	{
 	
-		$sql="SELECT a.codigo,a.idsite,a.idproyecto,c.nombre as proyecto,a.nombre,a.lider_cuadrilla,p.nombre as supervisor,a.observaciones_campo,a.documentador,b.nombre as doc,a.observaciones_doc,a.auditor,a.estado_nokia,a.imagen,a.idusuario,a.imagen2,a.imagen3,a.imagen4,a.imagen5,a.imagen6,a.imagen7,a.imagen8,a.imagen9,a.imagen10,a.imagen11,a.imagen12,a.imagen13,a.condicion FROM site a INNER JOIN proyecto c ON a.idproyecto=c.idproyecto INNER JOIN persona b ON a.documentador=b.idpersona  INNER JOIN persona p ON a.lider_cuadrilla=p.idpersona ORDER BY idsite DESC	";
+		$sql="SELECT a.codigo,a.idsite,a.idproyecto,c.cliente as cliente, c.nombre as proyecto,a.nombre,a.lider_cuadrilla,p.nombre as supervisor,a.observaciones_campo,a.documentador,b.nombre as doc,a.observaciones_doc,a.auditor,a.estado_nokia,a.imagen,a.idusuario,a.imagen2,a.imagen3,a.imagen4,a.imagen5,a.imagen6,a.imagen7,a.imagen8,a.imagen9,a.imagen10,a.imagen11,a.imagen12,a.imagen13,a.condicion FROM site a INNER JOIN proyecto c ON a.idproyecto=c.idproyecto INNER JOIN persona b ON a.documentador=b.idpersona  INNER JOIN persona p ON a.lider_cuadrilla=p.idpersona where cliente='OFG' ORDER BY idsite DESC";
 
 		return ejecutarConsulta($sql);		
 	}
 
-	public function listar700ultratel()
+	public function listar700syf()
 	{
 	
-		$sql="SELECT a.codigo,a.idsite,a.idproyecto,c.nombre as proyecto,a.nombre,a.lider_cuadrilla,p.nombre as supervisor,a.observaciones_campo,a.documentador,b.nombre as doc,a.observaciones_doc,a.auditor,a.estado_nokia,a.imagen,a.idusuario,a.imagen2,a.imagen3,a.imagen4,a.imagen5,a.imagen6,a.imagen7,a.imagen8,a.imagen9,a.imagen10,a.imagen11,a.imagen12,a.imagen13,a.condicion FROM site a INNER JOIN proyecto c ON a.idproyecto=c.idproyecto INNER JOIN persona b ON a.documentador=b.idpersona  INNER JOIN persona p ON a.lider_cuadrilla=p.idpersona WHERE a.idproyecto='4' ORDER BY idsite DESC";
+		$sql="SELECT a.codigo,a.idsite,a.idproyecto,c.cliente as cliente, c.nombre as proyecto,a.nombre,a.lider_cuadrilla,p.nombre as supervisor,a.observaciones_campo,a.documentador,b.nombre as doc,a.observaciones_doc,a.auditor,a.estado_nokia,a.imagen,a.idusuario,a.imagen2,a.imagen3,a.imagen4,a.imagen5,a.imagen6,a.imagen7,a.imagen8,a.imagen9,a.imagen10,a.imagen11,a.imagen12,a.imagen13,a.condicion FROM site a INNER JOIN proyecto c ON a.idproyecto=c.idproyecto INNER JOIN persona b ON a.documentador=b.idpersona  INNER JOIN persona p ON a.lider_cuadrilla=p.idpersona where cliente='SYF' ORDER BY idsite DESC";
+
+		return ejecutarConsulta($sql);		
+	}
+
+	public function listar700syfDominion()
+	{
+	
+		$sql="SELECT a.codigo,a.idsite,a.idproyecto,c.cliente as cliente, c.nombre as proyecto,a.nombre,a.lider_cuadrilla,p.nombre as supervisor,a.observaciones_campo,a.documentador,b.nombre as doc,a.observaciones_doc,a.auditor,a.estado_nokia,a.imagen,a.idusuario,a.imagen2,a.imagen3,a.imagen4,a.imagen5,a.imagen6,a.imagen7,a.imagen8,a.imagen9,a.imagen10,a.imagen11,a.imagen12,a.imagen13,a.condicion FROM site a INNER JOIN proyecto c ON a.idproyecto=c.idproyecto INNER JOIN persona b ON a.documentador=b.idpersona  INNER JOIN persona p ON a.lider_cuadrilla=p.idpersona where cliente='SYF' AND operador='CLARO'  ORDER BY idsite DESC";
 
 		return ejecutarConsulta($sql);		
 	}
@@ -140,7 +148,7 @@ require "../config/Conexion.php";
 
 	{
 	
-		$sql="SELECT a.codigo,a.idsite,a.idproyecto,c.nombre as proyecto,a.nombre,a.lider_cuadrilla,p.nombre as supervisor,a.documentador,b.nombre as personad,a.observaciones_campo,a.observaciones_doc,a.imagen,a.idusuario,a.imagen2,a.imagen3,a.imagen4,a.imagen5,a.imagen6,a.imagen7,a.imagen8,a.imagen9,a.imagen10,a.imagen11,a.imagen12,a.imagen13,a.condicion FROM site a INNER JOIN proyecto c ON a.idproyecto=c.idproyecto INNER JOIN persona b ON a.documentador=b.idpersona INNER JOIN persona p ON a.lider_cuadrilla=p.idpersona WHERE b.nombre='$idsite' OR p.nombre='$idsite' ORDER BY idsite DESC";
+		$sql="SELECT a.codigo,a.idsite,a.idproyecto,c.cliente as cliente,c.nombre as proyecto,a.nombre,a.lider_cuadrilla,p.nombre as supervisor,a.documentador,b.nombre as personad,a.observaciones_campo,a.observaciones_doc,a.imagen,a.idusuario,a.imagen2,a.imagen3,a.imagen4,a.imagen5,a.imagen6,a.imagen7,a.imagen8,a.imagen9,a.imagen10,a.imagen11,a.imagen12,a.imagen13,a.condicion FROM site a INNER JOIN proyecto c ON a.idproyecto=c.idproyecto INNER JOIN persona b ON a.documentador=b.idpersona INNER JOIN persona p ON a.lider_cuadrilla=p.idpersona WHERE cliente='SERVITEL' OR b.nombre='$idsite' OR p.nombre='$idsite'  ORDER BY idsite DESC";
 
 		return ejecutarConsulta($sql);		
 	}
@@ -156,6 +164,15 @@ require "../config/Conexion.php";
 
 	
 	public function listar700documentadorultratel($idsite)
+
+	{
+	
+		$sql="SELECT a.codigo,a.idsite,a.idproyecto,c.nombre as proyecto,a.nombre,a.lider_cuadrilla,p.nombre as supervisor,a.documentador,b.nombre as personad,a.observaciones_doc,a.imagen,a.idusuario,a.imagen2,a.imagen3,a.imagen4,a.imagen5,a.imagen6,a.imagen7,a.imagen8,a.imagen9,a.imagen10,a.imagen11,a.imagen12,a.imagen13,a.condicion FROM site a INNER JOIN proyecto c ON a.idproyecto=c.idproyecto INNER JOIN persona b ON a.documentador=b.idpersona INNER JOIN persona p ON a.lider_cuadrilla=p.idpersona WHERE a.idproyecto='4'and b.nombre='$idsite' ORDER BY idsite DESC";
+
+		return ejecutarConsulta($sql);		
+	}
+
+	public function listar700documentadorsyf($idsite)
 
 	{
 	

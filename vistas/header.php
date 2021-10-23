@@ -189,15 +189,15 @@ if (strlen(session_id()) < 1)
 
         <?php
           if ($_SESSION['escritorio'] == 1 or $_SESSION['cliente_ofg'] == 1) {
-            echo '<li id="mOFG" class="treeview">
+            echo '<li id="mSYF" class="treeview">
               <a href="#">
                 <i class="fa fa-laptop"></i>
-                <span>S&F</span>
+                <span>SYF</span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-              <li id="lProyecto"><a href="indexproyecto3.php"><i class="fa fa-circle-o"></i> Proyectos</a></li>
-              <li id="lHadwarede"><a href="indexHadware.php"><i class="fa fa-circle-o"></i> Hardware</a></li>
+              <li id="lProyectosyf"><a href="indexproyecto3.php"><i class="fa fa-circle-o"></i> Proyectos</a></li>
+              <li id="lHadwarede"><a href="indexHadware.php"><i class="fa fa-circle-o"></i> Logistica</a></li>
               </ul>
             </li>';
           }

@@ -35,7 +35,7 @@ Class proyecto
 	//Implementamos un método para activar categorías
 	public function activar($idproyecto)
 	{
-		$sql="UPDATE proyecto SET condicion='1' WHERE idproyecto='$idproyecto'";
+		$sql="UPDATE proyecto SET condicion='1' WHERE idproyecto='$idproyecto' ";
 		return ejecutarConsulta($sql);
 	}
 
@@ -55,7 +55,17 @@ Class proyecto
 	//Implementar un método para listar los registros y mostrar en el select
 	public function select()
 	{
-		$sql="SELECT * FROM proyecto where condicion=1";
+		$sql="SELECT * FROM proyecto where cliente='OFG' ";
+		return ejecutarConsulta($sql);		
+	}
+	public function selectsyf()
+	{
+		$sql="SELECT * FROM proyecto where operador='NOKIA' AND cliente='SYF'  ";
+		return ejecutarConsulta($sql);		
+	}
+	public function selectsyfDominion()
+	{
+		$sql="SELECT * FROM proyecto where operador='CLARO' AND cliente='SYF' ";
 		return ejecutarConsulta($sql);		
 	}
 }

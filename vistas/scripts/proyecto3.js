@@ -9,8 +9,8 @@ function init(){
 	{
 		guardaryeditar(e);	
 	});
-	$('#mULTRATEL').addClass("treeview active");
-	$('#lProyecto2').addClass("active");
+	$('#mSYF').addClass("treeview active");
+	$('#lProyectosyf').addClass("active");
 	$('#pProyecto1').tab('show')
 
 }

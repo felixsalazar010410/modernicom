@@ -57,7 +57,7 @@ if ($_SESSION['escritorio']==1 or $_SESSION['cliente_ultratel']==1 )
 
 
                     <div  class="form-group col-lg-2 col-md-4 col-sm-4 col-xs-4" >
-                      <a href="inicioAsecones.php" title="NOKIA" style="text-decoration:none;">
+                      <a href="iniciosyf.php" title="NOKIA" style="text-decoration:none;">
                       <img src="../public/images/nokia1.png" class="card-img-top" alt="..."onmouseover="this.src='../public/images/nokia2.png'" onmouseout="this.src='../public/images/nokia1.png' " style="width:100px; height:100px;" >
                         <div class="card">
                           <div class="card-body">
@@ -69,11 +69,11 @@ if ($_SESSION['escritorio']==1 or $_SESSION['cliente_ultratel']==1 )
 
 
                     <div  class="form-group col-lg-2 col-md-4 col-sm-4 col-xs-4" >
-                      <a href="articulo.php" title="CLARO" style="text-decoration:none;">
-                      <img src="../public/images/claro01.png" class="card-img-top" alt="..."onmouseover="this.src='../public/images/claro02.png'" onmouseout="this.src='../public/images/claro01.png' " style="width:100px; height:100px;" >
+                      <a href="iniciosyf2.php" title="DOMINION" style="text-decoration:none;">
+                      <img src="../public/images/dominion01.png" class="card-img-top" alt="..."onmouseover="this.src='../public/images/dominion02.png'" onmouseout="this.src='../public/images/dominion01.png' " style="width:100px; height:100px;" >
                         <div class="card">
                           <div class="card-body">
-                          <font face="arial" size="-1" color="black"><p margin-right="100px">&nbsp &nbsp &nbsp &nbsp CLARO</p></font>
+                          <font face="arial" size="-1" color="black"><p margin-right="100px">&nbsp &nbsp DOMINION</p></font>
                             <!-- <h2 class="card-title">Articulos</h2> -->
                           </div>
                         </div>
