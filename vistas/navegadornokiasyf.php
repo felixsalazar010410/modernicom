@@ -2,7 +2,7 @@
     <div class="card-header">
         <ul class="nav nav-pills nav-fill" id="myTab">
             <li class="nav-item">
-                <a class="nav-link disabled" id="pIndexProyecto" href="indexProyecto3.php">PROYECTOS</a>
+                <a class="nav-link disabled" id="pIndexProyecto" href="indexproyecto3.php">PROYECTOS</a>
             </li>
             <?php if ($_SESSION['proyecto_asecones'] == 1) { ?>
                 <li class="nav-item">
