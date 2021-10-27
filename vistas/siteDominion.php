@@ -39,10 +39,6 @@ if (!isset($_SESSION["nombre"])) {
                       <thead>
                         <th>Opciones</th>
                         <th>ESTACION</br>BASE</th>
-                        <th>PROYECTO</th>
-                        <th>SMP</th>
-                        <th>RESPONSABLE</br>HARDWARE</th>
-                        <th>RESPONSABLE</br>DOCUMENTACION</th>
                         <th>OBSERVACIONES</th>
                         <th>TSS</th>
                         <th>PACKING LIST</th>
@@ -55,8 +51,8 @@ if (!isset($_SESSION["nombre"])) {
                         <th>ACTA HB</th>
                         <th>FORMATO REPORTE RADIANTE</br>POST</th>
                         <th>ARCHIVOS DE</br>COMISIONAMIENTO</br>POST</th>
-                        <th>FORMATO REGISTRO BTS</br>O FORMATO ATP</th>
-                        <th>PRUEBAS V&D</br>O PRUEBAS KPI</th>
+                        <th>FORMATO REGISTRO BTS</th>
+                        <th>PRUEBAS V&D</th>
                         <th>ESTADO</th>
                       </thead>
                       <tbody>
@@ -97,7 +93,7 @@ if (!isset($_SESSION["nombre"])) {
 
 
                       <div id="MyI0" class="form-group col-lg-12 col-md-6 col-sm-6 col-xs-12">
-                        <h3 class="text-primary">RESPONSABLE EN HARDWARE CONTROL</h3>
+                        <h3 class="text-primary">RESPONSABLE EN SYF</h3>
                         <hr style="height:2px;border-width:0;color:gray;background-color:gray">
                       </div>
 
@@ -137,14 +133,14 @@ if (!isset($_SESSION["nombre"])) {
 
                       <!--Tipo Ubicacion -->
                       <div id="MyI0" class="form-group col-lg-12 col-md-6 col-sm-6 col-xs-12">
-                        <h3 class="text-primary">RESPONSABLE EN DOCUMENTACION</h3>
+                        <h3 class="text-primary">RESPONSABLE EN DOMINION</h3>
                         <hr style="height:2px;border-width:0;color:gray;background-color:gray">
                       </div>
 
                       <!--Regional -->
                       <div id="myU1" class="form-group col-lg-12 col-md-6 col-sm-6 col-xs-12">
                         <!-- <hr style="height:2px;border-width:0;color:gray;background-color:gray"> -->
-                        <label>Documentador(*):</label>
+                        <label>Responsable(*):</label>
                         <select class="form-control select-picker" data-live-search="true" name="documentador" id="documentador"></select>
                       </div>
                       <!--Departamento -->
@@ -169,33 +165,6 @@ if (!isset($_SESSION["nombre"])) {
                         <textarea name="observaciones_doc" id="observaciones_doc" class="form-control" rows="8"></textarea>
                       </div>
 
-                      <div id="MyI0" class="form-group col-lg-12 col-md-6 col-sm-6 col-xs-12">
-                        <h3 class="text-primary">RESPONSABLE EN NOKIA</h3>
-                        <hr style="height:2px;border-width:0;color:gray;background-color:gray">
-                      </div>
-
-                      <!--Direccion -->
-                      <div id="myU5" class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <label>Auditor (*):</label>
-                        <select class="form-control select-picker" name="auditor" id="auditor">
-                          <option value="Angie">Angie</option>
-                          <option value="Freddy">Freddy</option>
-                          <option value="Jenny">Jenny</option>
-                          <option value="Luz Ceny">Luz Ceny</option>
-                        </select>
-                      </div>
-                      <div id="myU7" class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                        <label>Estado(*):</label>
-                        <select class="form-control select-picker" name="estado_nokia" id="estado_nokia">
-                          <option value="PENDIENTE">PENDIENTE</option>
-                          <option value="APROBADO">APROBADO</option>
-                        </select>
-                      </div>
-                      <!--Latitud -->
-                      <div id="myU6" class="form-group col-lg-12 col-md-6 col-sm-6 col-xs-12">
-                        <label>Observacion Nokia(*):</label>
-                        <textarea name="observaciones_nokia" id="observaciones_nokia" class="form-control" rows="8"></textarea>
-                      </div>
                       <!--Longitud -->
                     </div>
 

@@ -100,7 +100,7 @@ Class Persona
 
 	public function selectsyf_documentador()
 	{
-		$sql="SELECT * FROM persona where empresa='SYF' and cargo='DOCUMENTADOR'and estado=1 ";
+		$sql="SELECT * FROM persona where empresa='DOMINION' and cargo='DOCUMENTADOR'and estado=1 ";
 		return ejecutarConsulta($sql);		
 	}
 }

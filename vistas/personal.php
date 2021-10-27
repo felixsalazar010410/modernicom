@@ -565,6 +565,7 @@ if ($_SESSION['admin']==1)
                           <div class="form-group col-lg-3 col-md-6 col-sm-6 col-xs-12">
                             <label>Empresa:</label>
                             <select class="form-control select-picker" name="empresa" id="empresa" required>
+                              <option value="DOMINION">DOMINION</option>
                               <option value="MODERNICOM">MODERNICOM</option>
                               <option value="OFG">OFG</option>
                               <option value="TRANSCOM">TRANSCOM</option>
