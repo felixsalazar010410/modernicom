@@ -10,42 +10,33 @@ function init(){
 		guardaryeditar(e);	
 	})
 
-	//Cargamos los items al select proyecto
-	$.post("../ajax/site.php?op=selectProyecto", function(r){
-	            $("#idproyecto").html(r);
-				$('#idproyecto').selectpicker('refresh');
-	
+	//Cargamos los items al select categoria
+	$.post("../ajax/sitewom.php?op=selectCategoria", function(r){
+	            $("#idcategoria").html(r);
+	            $('#idcategoria').selectpicker('refresh');
 
 	});
-
 	$("#imagenmuestra").hide();
-	$('#mTemwok').addClass("treeview active");
-	$('#lProyectos').addClass("active");
-	$('#pWom').tab('show')
-//Cargamos los items al select persona
-	$.post("../ajax/site.php?op=selectPersona", function(r){
-		$("#lider_cuadrilla").html(r);
-		$('#lider_cuadrilla').selectpicker('refresh');
-
- 
-});
-	
+	$('#mAlmacen').addClass("treeview active");
+    $('#lsitewoms').addClass("active");
+	$('#psitewom').tab('show')
 }
 
 //Función limpiar
 function limpiar()
 {
+	$("#codigo").val("");
 	$("#nombre").val("");
-	$("#descripcion").val("");
 	$("#regional").val("");
-	$("#direccion").val("");
-	$("#lider_cuadrilla").val("");
-	$("#estado_sitio").val("");
+	$("#torrero").val("");
+	$("#especialista").val("");
+	$("#auditor").val("");
 	$("#imagenmuestra").attr("src","");
-	$("#archivo").attr("src","");
 	$("#imagenactual").val("");
-	$("#print").hide();
-	$("#idsite").val("");
+	$("#archivo").attr("src","");
+	
+	$("#idsitewom").val("");
+	
 }
 
 //Función mostrar formulario
@@ -58,6 +49,9 @@ function mostrarform(flag)
 		$("#formularioregistros").show();
 		$("#btnGuardar").prop("disabled",false);
 		$("#btnagregar").hide();
+		$("#imagenmuestra").show();
+
+		
 	}
 	else
 	{
@@ -78,26 +72,57 @@ function cancelarform()
 function listar()
 {
 	tabla=$('#tbllistado').dataTable(
-	{
+	{   
+		"orderCellsTop": true,
+        "fixedHeader": true,
 		"lengthMenu": [ 5, 10, 25, 75, 100],//mostramos el menú de registros a revisar
 		"aProcessing": true,//Activamos el procesamiento del datatables
-	    "aServerSide": true,//Paginación y filtrado realizados por el servidor
-	    dom: '<Bl<f>rtip>',//Definimos los elementos del control de tabla
+		"aServerSide": true,//Paginación y filtrado realizados por el servidor
+
+	
+		
+		dom: '<Bl<f>rtip>',//Definimos los elementos del control de tabla
+		ordering: false,
 	    buttons: [		          
-		            'copyHtml5',
-		            'excelHtml5',
-		            'csvHtml5',
-		            'pdf'
-		        ],
+			{
+                extend: 'copyHtml5',
+                text:'Copiar',
+                exportOptions: {
+                    columns: [ 0, ':visible' ]
+                }
+            },
+            {
+                extend: 'excelHtml5',
+                exportOptions: {
+                    columns: [2,3,4,5,6]
+                }
+            },
+            {
+                extend: 'colvis',
+                text: 'Visor de columnas',
+                collectionLayout: 'fixed three-column'
+				},
+				
+				
+        ],
 		"ajax":
+
 				{
-					url: '../ajax/site.php?op=listarwom',
+					url: '../ajax/sitewom.php?op=listar',
 					type : "get",
-					dataType : "json",						
+					dataType : "json",
+					columnDefs:[{
+						targets: "_all",
+						searchable: false
+					}],
+											
 					error: function(e){
 						console.log(e.responseText);	
 					}
-				},
+				}
+				
+				
+				,
 		"language": {
             "lengthMenu": "Mostrar : _MENU_ registros",
             "buttons": {
@@ -107,13 +132,31 @@ function listar()
                     1: '1 línea copiada'
                 }
             }
-        },
+		},
+		
+		
+		
 		"bDestroy": true,
-		"iDisplayLength": 25,//Paginación
-	    "order": [[ 0, "desc" ]]//Ordenar (columna,orden)
-	}).DataTable();
+		"iDisplayLength": 10,//Paginación
+		"order": [[ 0, "desc" ]]//Ordenar (columna,orden)
+
+
+
+		
+		
+	}
+	
+
+	).DataTable();
+
+
+	
+		
+
+
 }
 //Función para guardar o editar
+
 
 function guardaryeditar(e)
 {
@@ -122,7 +165,7 @@ function guardaryeditar(e)
 	var formData = new FormData($("#formulario")[0]);
 
 	$.ajax({
-		url: "../ajax/site.php?op=guardaryeditarwom",
+		url: "../ajax/sitewom.php?op=guardaryeditar",
 	    type: "POST",
 	    data: formData,
 	    contentType: false,
@@ -139,41 +182,56 @@ function guardaryeditar(e)
 	limpiar();
 }
 
-function mostrar(idsite)
+function mostrar(idsitewom)
 {
-	$.post("../ajax/site.php?op=mostrar",{idsite : idsite}, function(data, status)
+	$.post("../ajax/sitewom.php?op=mostrar",{idsitewom : idsitewom}, function(data, status)
 	{
 		data = JSON.parse(data);		
 		mostrarform(true);
 
-		$("#idproyecto").val(data.idproyecto);
-		$('#idproyecto').selectpicker('refresh');
+		$("#idcategoria").val(data.idcategoria);
+		$('#idcategoria').selectpicker('refresh');
+		$("#codigo").val(data.codigo);
 		$("#nombre").val(data.nombre);
+		$("#especialista").val(data.especialista);
+		$("#torrero").val(data.torrero);
 		$("#regional").val(data.regional);
-		$("#direccion").val(data.direccion);
-		$("#lider_cuadrilla").val(data.lider_cuadrilla);
-		$('#lider_cuadrilla').selectpicker('refresh');
-		$("#estado_sitio").val(data.estado_sitio);
-		$("#descripcion").val(data.descripcion);
+    	$('#regional').selectpicker('refresh');
+		$("#auditor").val(data.auditor);
 		$("#imagenmuestra").show();
-		$("#imagenmuestra").attr("src","../files/sites/"+data.imagen);
+		$("#imagenmuestra").attr("src","../files/sitewoms/"+data.imagen);
 		$("#imagenactual").val(data.imagen);
- 		$("#idsite").val(data.idsite);
-		 $("#archivo").attr("href", "../files/sites/"+data.imagen);
-		 $("#imagenactual").val(data.imagen);
-		 $("#idsite").val(data.idsite);
+		$("#idsitewom").val(data.idsitewom);
+		$("#archivo").attr("href", "../files/sitewoms/"+data.imagen);
+
+		$("#imagenmuestra").attr("src","../files/dco/"+data.imagen);
+		$("#imagenactual").val(data.imagen);
+
+		$("#archivo").attr("href", "../files/dco/"+data.imagen);
+		$("#imagenactual").val(data.imagen);
+
+
+		$("#archivo2").attr("href", "../files/inventario/"+data.imagen2);
+		$("#imagenactual2").val(data.imagen2);
+
+		$("#archivo3").attr("href", "../files/preatp/"+data.imagen3);
+		$("#imagenactual3").val(data.imagen3);
+
+		
+		$("#archivo4").attr("href", "../files/atp/"+data.imagen4);
+		$("#imagenactual4").val(data.imagen4);
  		generarbarcode();
 
  	})
 }
 
 //Función para desactivar registros
-function desactivar(idsite)
+function desactivar(idsitewom)
 {
 	bootbox.confirm("¿Está Seguro de desactivar el artículo?", function(result){
 		if(result)
         {
-        	$.post("../ajax/site.php?op=desactivar", {idsite : idsite}, function(e){
+        	$.post("../ajax/sitewom.php?op=desactivar", {idsitewom : idsitewom}, function(e){
         		bootbox.alert(e);
 	            tabla.ajax.reload();
         	});	
@@ -182,12 +240,12 @@ function desactivar(idsite)
 }
 
 //Función para activar registros
-function activar(idsite)
+function activar(idsitewom)
 {
 	bootbox.confirm("¿Está Seguro de activar el Artículo?", function(result){
 		if(result)
         {
-        	$.post("../ajax/site.php?op=activar", {idsite : idsite}, function(e){
+        	$.post("../ajax/sitewom.php?op=activar", {idsitewom : idsitewom}, function(e){
         		bootbox.alert(e);
 	            tabla.ajax.reload();
         	});	
@@ -195,18 +253,5 @@ function activar(idsite)
 	})
 }
 
-//función para generar el código de barras
-function generarbarcode()
-{
-	codigo=$("#codigo").val();
-	JsBarcode("#barcode", codigo);
-	$("#print").show();
-}
-
-//Función para imprimir el Código de barras
-function imprimir()
-{
-	$("#print").printArea();
-}
 
 init();

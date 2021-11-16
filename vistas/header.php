@@ -206,6 +206,22 @@ if (strlen(session_id()) < 1)
 
           <?php
           if ($_SESSION['escritorio'] == 1 or  $_SESSION['cliente_ultratel'] == 1) {
+            echo '<li id="mGSN" class="treeview">
+              <a href="#">
+                <i class="fa fa-laptop"></i>
+                <span>GSN</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+              <li id="lProyecto4"><a href="indexproyecto4.php"><i class="fa fa-circle-o"></i> Proyectos</a></li>
+              </ul>
+            </li>';
+          }
+          ?>
+
+
+          <?php
+          if ($_SESSION['escritorio'] == 1 or  $_SESSION['cliente_ultratel'] == 1) {
             echo '<li id="mULTRATEL" class="treeview">
               <a href="#">
                 <i class="fa fa-laptop"></i>
@@ -218,6 +234,8 @@ if (strlen(session_id()) < 1)
             </li>';
           }
           ?>
+
+
 
 
 
