@@ -21,7 +21,7 @@ if ($_SESSION['almacen']==1)
             <div class="row">
               <div class="col-md-12">
                   <div class="box">
-                  <?php require 'navegadorbodega.php'; ?>
+                  <?php require 'navegadorgsnwom.php'; ?>
                     <div class="box-header with-border">
                           <h1 class="box-title">ESTACION BASE <button class="btn btn-success" id="btnagregar" onclick="mostrarform(true)"><i class="fa fa-plus-circle"></i> Agregar</button></a></h1>
                         <div class="box-tools pull-right">

@@ -11,7 +11,7 @@
             <?php } ?>
             <?php if ($_SESSION['almacen'] == 1) { ?>
                 <li class="nav-item dropdown">
-                    <a class="nav-link  dropdown-toggle" id="pSite" data-toggle="dropdown" href="siteEscuelas.php" role="button" aria-haspopup="true" aria-expanded="false">PERMISOS &nbsp<i class="fa fa-sort-desc"></i></a>
+                    <a class="nav-link  dropdown-toggle" id="pPermisos" data-toggle="dropdown" href="siteEscuelas.php" role="button" aria-haspopup="true" aria-expanded="false">PERMISOS &nbsp<i class="fa fa-sort-desc"></i></a>
                     <div class="dropdown-menu">
                         <a class="dropdown-item" href="#">Costa</a>
                         <div class="dropdown-divider"></div>

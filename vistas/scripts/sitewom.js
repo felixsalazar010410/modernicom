@@ -17,9 +17,10 @@ function init(){
 
 	});
 	$("#imagenmuestra").hide();
-	$('#mAlmacen').addClass("treeview active");
-    $('#lsitewoms').addClass("active");
-	$('#psitewom').tab('show')
+	$('#mGSN').addClass("treeview active");
+	$('#lProyecto4').addClass("active");
+	$('#pSite').tab('show');
+	$("#documentador").hide();
 }
 
 //Función limpiar
