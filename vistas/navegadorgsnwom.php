@@ -9,7 +9,7 @@
                     <a class="nav-link disabled" id="pInicio" href="iniciosyf.php">INICIO</a>
                 </li>
             <?php } ?>
-            <?php if ($_SESSION['almacen'] == 1) { ?>
+            <?php if ($_SESSION['gsn_admin'] == 1) { ?>
                 <li class="nav-item dropdown">
                     <a class="nav-link  dropdown-toggle" id="pPermisos" data-toggle="dropdown" href="siteEscuelas.php" role="button" aria-haspopup="true" aria-expanded="false">PERMISOS &nbsp<i class="fa fa-sort-desc"></i></a>
                     <div class="dropdown-menu">
@@ -21,7 +21,7 @@
                     </div>
                 </li>
             <?php } ?>
-            <?php if ($_SESSION['almacen'] == 1) { ?>
+            <?php if ($_SESSION['gsn_admin'] == 1) { ?>
                 <li class="nav-item dropdown">
                     <a class="nav-link  dropdown-toggle" id="pSite" data-toggle="dropdown" href="siteEscuelas.php" role="button" aria-haspopup="true" aria-expanded="false">SITES &nbsp<i class="fa fa-sort-desc"></i></a>
                     <div class="dropdown-menu">
@@ -46,7 +46,7 @@
                     </div>
                 </li>
             <?php } ?>
-            <?php if ($_SESSION['almacen'] == 1) { ?>
+            <?php if ($_SESSION['gsn_admin'] == 1) { ?>
                 <li class="nav-item dropdown">
                     <a class="nav-link  dropdown-toggle" data-toggle="dropdown" href="siteEscuelas.php" role="button" aria-haspopup="true" aria-expanded="false">ESTANDARES &nbsp<i class="fa fa-sort-desc"></i></a>
                     <div class="dropdown-menu">

@@ -11,7 +11,7 @@ else
 {
 require 'header.php';
 
-if ($_SESSION['escritorio']==1)
+if ($_SESSION['gsn_admin']==1)
 {
   require_once "../modelos/Consultas.php";
 

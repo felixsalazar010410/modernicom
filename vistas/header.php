@@ -205,7 +205,7 @@ if (strlen(session_id()) < 1)
           ?>
 
           <?php
-          if ($_SESSION['escritorio'] == 1 or  $_SESSION['cliente_ultratel'] == 1) {
+          if ($_SESSION['gsn_admin'] == 1 ) {
             echo '<li id="mGSN" class="treeview">
               <a href="#">
                 <i class="fa fa-laptop"></i>
@@ -276,7 +276,7 @@ if (strlen(session_id()) < 1)
 
 
           <?php
-          if ($_SESSION['acceso'] == 1) {
+          if ($_SESSION['gsn_admin'] == 1) {
             echo ' <li id="mFormatoswom">
               <a href="formatos.php">
                 <i class="fa fa-plus-square"></i> <span>Formatos WOM</span>
