@@ -68,7 +68,8 @@ if ($_SESSION['gsn_admin']==1  )
                       </div>
 
 
-                    <div  class="form-group col-lg-2 col-md-4 col-sm-4 col-xs-4" >
+                    <!-- <div  class="form-group col-lg-2 col-md-4 col-sm-4 col-xs-4" >
+                      
                       <a href="iniciosyf2.php" title="CLARO" style="text-decoration:none;">
                       <img src="../public/images/claro01.png" class="card-img-top" alt="..."onmouseover="this.src='../public/images/claro02.png'" onmouseout="this.src='../public/images/claro01.png' " style="width:100px; height:100px;" >
                         <div class="card">
@@ -77,7 +78,7 @@ if ($_SESSION['gsn_admin']==1  )
                             <!-- <h2 class="card-title">Articulos</h2> -->
                           </div>
                         </div>
-                      </div>
+                      </div> -->
 
                      
                       </div>

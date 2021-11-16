@@ -98,7 +98,7 @@ switch ($_GET["op"]){
  					' <button class="btn btn-danger" onclick="desactivar('.$reg->idsitewom.')"><i class="fa fa-close"></i></button>':
  					'<button class="btn btn-warning" onclick="mostrar('.$reg->idsitewom.')"><i class="fa fa-pencil"></i></button>'.
  					' <button class="btn btn-primary" onclick="activar('.$reg->idsitewom.')"><i class="fa fa-check"></i></button>',
-				"1"=>$reg->codigo,
+				"1"=>$reg->nombre,
 				"2" => "<a href ='../files/dco/" . $reg->imagen . "'target='_blank'>$reg->imagen</a>",
 				"3" => "<a href ='../files/inventario/" . $reg->imagen2 . "' >$reg->imagen2</a>",
 				"4" => "<a href ='../files/preatp/" . $reg->imagen3 . "' >$reg->imagen3</a>",
