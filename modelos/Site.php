@@ -120,7 +120,7 @@ require "../config/Conexion.php";
 	public function listar700syf()
 	{
 	
-		$sql="SELECT a.codigo,a.idsite,a.idproyecto,c.cliente as cliente, c.nombre as proyecto,a.nombre,a.lider_cuadrilla,p.nombre as supervisor,a.observaciones_campo,a.documentador,b.nombre as doc,a.observaciones_doc,a.auditor,a.estado_nokia,a.imagen,a.idusuario,a.imagen2,a.imagen3,a.imagen4,a.imagen5,a.imagen6,a.imagen7,a.imagen8,a.imagen9,a.imagen10,a.imagen11,a.imagen12,a.imagen13,a.condicion FROM site a INNER JOIN proyecto c ON a.idproyecto=c.idproyecto INNER JOIN persona b ON a.documentador=b.idpersona  INNER JOIN persona p ON a.lider_cuadrilla=p.idpersona where cliente='SYF' ORDER BY idsite DESC";
+		$sql="SELECT a.codigo,a.idsite,a.idproyecto,c.cliente as cliente, c.nombre as proyecto,a.nombre,a.lider_cuadrilla,p.nombre as supervisor,a.observaciones_campo,a.documentador,b.nombre as doc,a.observaciones_doc,a.auditor,a.estado_nokia,a.imagen,a.idusuario,a.imagen2,a.imagen3,a.imagen4,a.imagen5,a.imagen6,a.imagen7,a.imagen8,a.imagen9,a.imagen10,a.imagen11,a.imagen12,a.imagen13,a.condicion FROM site a INNER JOIN proyecto c ON a.idproyecto=c.idproyecto INNER JOIN persona b ON a.documentador=b.idpersona  INNER JOIN persona p ON a.lider_cuadrilla=p.idpersona where cliente='SYF' AND operador='NOKIA' ORDER BY idsite DESC";
 
 		return ejecutarConsulta($sql);		
 	}
