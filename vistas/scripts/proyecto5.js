@@ -9,9 +9,9 @@ function init(){
 	{
 		guardaryeditar(e);	
 	});
-	$('#mGSN').addClass("treeview active");
-	$('#lProyectosyf').addClass("active");
-	$('#pProyecto4').tab('show')
+	$('#mMANKCO').addClass("treeview active");
+	$('#lProyecto5').addClass("active");
+	$('#pProyecto5').tab('show')
 
 }
 

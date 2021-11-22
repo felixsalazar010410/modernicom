@@ -299,6 +299,7 @@ switch ($_GET["op"]){
 			in_array(14,$valores)?$_SESSION['cliente_ofg']=1:$_SESSION['cliente_ofg']=0;
 			in_array(15,$valores)?$_SESSION['cliente_ultratel']=1:$_SESSION['cliente_ultratel']=0;
 			in_array(16,$valores)?$_SESSION['gsn_admin']=1:$_SESSION['gsn_admin']=0;
+			in_array(17,$valores)?$_SESSION['mankco_admin']=1:$_SESSION['mankco_admin']=0;
 
 	    }
 	    echo json_encode($fetch);
