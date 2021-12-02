@@ -78,7 +78,7 @@ if ($_SESSION['gsn_admin']==1  )
                             <!-- <h2 class="card-title">Articulos</h2> -->
                           </div>
                         </div>
-                      </div> -->
+                      </div> 
 
                      
                       </div>
