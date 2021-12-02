@@ -95,7 +95,7 @@ function listar()
             {
                 extend: 'excelHtml5',
                 exportOptions: {
-                    columns: [2,3,4,5,6]
+                    columns: [2,3,4,5,6,7]
                 }
             },
             {
@@ -199,6 +199,7 @@ function mostrar(idsitewom)
 		$("#regional").val(data.regional);
     	$('#regional').selectpicker('refresh');
 		$("#auditor").val(data.auditor);
+		$('#auditor').selectpicker('refresh');
 		$("#imagenmuestra").show();
 		$("#imagenmuestra").attr("src","../files/sitewoms/"+data.imagen);
 		$("#imagenactual").val(data.imagen);
@@ -221,6 +222,9 @@ function mostrar(idsitewom)
 		
 		$("#archivo4").attr("href", "../files/atp/"+data.imagen4);
 		$("#imagenactual4").val(data.imagen4);
+
+		$("#archivo5").attr("href", "../files/actas/"+data.imagen5);
+		$("#imagenactual5").val(data.imagen5);
  		generarbarcode();
 
  	})
@@ -229,7 +233,7 @@ function mostrar(idsitewom)
 //Función para desactivar registros
 function desactivar(idsitewom)
 {
-	bootbox.confirm("¿Está Seguro de desactivar el artículo?", function(result){
+	bootbox.confirm("¿Está Seguro de rechazar el Sitio?", function(result){
 		if(result)
         {
         	$.post("../ajax/sitewom.php?op=desactivar", {idsitewom : idsitewom}, function(e){
@@ -243,7 +247,7 @@ function desactivar(idsitewom)
 //Función para activar registros
 function activar(idsitewom)
 {
-	bootbox.confirm("¿Está Seguro de activar el Artículo?", function(result){
+	bootbox.confirm("¿Está Seguro de aprobar el Sitio?", function(result){
 		if(result)
         {
         	$.post("../ajax/sitewom.php?op=activar", {idsitewom : idsitewom}, function(e){

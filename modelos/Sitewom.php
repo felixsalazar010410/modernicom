@@ -11,17 +11,17 @@ Class Sitewom
 	}
 
 	//Implementamos un método para insertar registros
-	public function insertar($codigo,$nombre,$regional,$torrero,$especialista,$auditor,$imagen,$imagen2,$imagen3,$imagen4)
+	public function insertar($codigo,$nombre,$regional,$torrero,$especialista,$auditor,$imagen,$imagen2,$imagen3,$imagen4,$imagen5)
 	{
-		$sql="INSERT INTO sitewom (codigo,nombre,regional,torrero,especialista,auditor,imagen,imagen2,imagen3,condicion)
-		VALUES ('$codigo','$nombre','$regional','$torrero','$especialista','$auditor','$imagen','$imagen2','$imagen3','$imagen4','1')";
+		$sql="INSERT INTO sitewom(codigo,nombre,regional,torrero,especialista,auditor,imagen,imagen2,imagen3,imagen4,imagen5,condicion)
+		VALUES ('$codigo','$nombre','$regional','$torrero','$especialista','$auditor','$imagen','$imagen2','$imagen3','$imagen4','$imagen5','1')";
 		return ejecutarConsulta($sql);
 	}
 
 	//Implementamos un método para editar registros
-	public function editar($idsitewom,$codigo,$nombre,$regional,$torrero,$especialista,$auditor,$imagen,$imagen2,$imagen3,$imagen4)
+	public function editar($idsitewom,$codigo,$nombre,$regional,$torrero,$especialista,$auditor,$imagen,$imagen2,$imagen3,$imagen4,$imagen5)
 	{
-		$sql="UPDATE sitewom SET codigo='$codigo',nombre='$nombre',regional='$regional',torrero='$torrero',especialista='$especialista',auditor='$auditor',imagen='$imagen',imagen2='$imagen2',imagen3='$imagen3',imagen4='$imagen4' WHERE idsitewom='$idsitewom'";
+		$sql="UPDATE sitewom SET codigo='$codigo',nombre='$nombre',regional='$regional',torrero='$torrero',especialista='$especialista',auditor='$auditor',imagen='$imagen',imagen2='$imagen2',imagen3='$imagen3',imagen4='$imagen4',imagen5='$imagen5' WHERE idsitewom='$idsitewom'";
 		return ejecutarConsulta($sql);
 	}
 
@@ -49,7 +49,7 @@ Class Sitewom
 	//Implementar un método para listar los registros
 	public function listar()
 	{
-		$sql="SELECT a.idsitewom,a.codigo,a.nombre,a.regional,a.torrero,a.especialista,a.auditor,a.imagen,a.imagen2,a.imagen3,a.imagen4,a.condicion FROM sitewom a";
+		$sql="SELECT a.idsitewom,a.codigo,a.nombre,a.regional,a.torrero,a.especialista,a.auditor,a.imagen,a.imagen2,a.imagen3,a.imagen4,a.imagen5,a.condicion FROM sitewom a";
 		return ejecutarConsulta($sql);		
 	}
 

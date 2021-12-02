@@ -34,10 +34,13 @@ if ($_SESSION['admin']==1)
                           <thead>
                             <th>Opciones</th>
                             <th>Nombre</th>
+                            <th>Auditor</th>
+                            <th>Observaciones</th>
                             <th>Dco</th>
                             <th>Inventario</th>
                             <th>Pre-Atp</th>
                             <th>Atp</th>
+                            <th>Acta De Instalacion</th>
                             <th>Estado</th>
                           </thead>
                           <tbody>                            
@@ -45,10 +48,13 @@ if ($_SESSION['admin']==1)
                           <tfoot>
                             <th>Opciones</th>
                             <th>Nombre</th>
+                            <th>Auditor</th>
+                            <th>Observaciones</th>
                             <th>Dco</th>
                             <th>Inventario</th>
                             <th>Pre-Atp</th>
                             <th>Atp</th>
+                            <th>Acta De Instalacion</th>
                             <th>Estado</th>
                           </tfoot>
                         </table>
@@ -58,15 +64,15 @@ if ($_SESSION['admin']==1)
                           <div class="form-group col-lg-4 col-md-6 col-sm-6 col-xs-12">
                             <label>Nombre(*):</label>
                             <input type="hidden" name="idsitewom" id="idsitewom">
-                            <input type="text" class="form-control" name="nombre" id="nombre" maxlength="100" placeholder="Nombre" required>
+                            <input type="text" class="form-control" name="nombre" id="nombre" maxlength="100" placeholder="Nombre">
                           </div>
                           <div class="form-group col-lg-2 col-md-6 col-sm-6 col-xs-12">
                             <label>Codigo(*):</label>
-                            <input type="text" class="form-control" name="codigo" id="codigo" required>
+                            <input type="text" class="form-control" name="codigo" id="codigo">
                           </div>
-                          <div class="form-group col-lg-2 col-md-4 col-sm-4 col-xs-12">
+                          <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <label>Regional (*):</label>
-                            <select class="form-control select-picker" name="regional" id="regional" required>
+                            <select class="form-control select-picker" name="regional" id="regional" >
                               <option value="CENTRO ORIENTE">CENTRO ORIENTE</option>
                               <option value="COSTA">COSTA</option>
                               <option value="NORORIENTE">NORORIENTE</option>
@@ -77,13 +83,19 @@ if ($_SESSION['admin']==1)
                             <label>Torrero(*):</label>
                             <input type="text" class="form-control" name="torrero" id="torrero" required>
                           </div>
-                          <div class="form-group col-lg-1 col-md-6 col-sm-6 col-xs-12">
-                            <label>Especialista:</label>
-                            <input type="text" class="form-control" name="especialista" id="especialista" maxlength="256" placeholder="Descripción">
-                          </div>
-                          <div class="form-group col-lg-1 col-md-6 col-sm-6 col-xs-12">
+                          
+                          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label>Auditor:</label>
-                            <input type="text" class="form-control" name="auditor" id="auditor" maxlength="256" placeholder="Descripción">
+                            <select class="form-control select-picker" name="auditor" id="auditor" >
+                              <option value="CHRISTIAN BARRIGA">CHRISTIAN BARRIGA</option>
+                              <option value="DIEGO CRISTANCHO">DIEGO CRISTANCHO</option>
+                              <option value="JHONNATTAN ACOSTA">JHONNATTAN ACOSTA</option>
+                            </select>
+                          </div>
+
+                          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label>Observaciones:</label>
+                          <textarea type="text" class="form-control" name="especialista" id="especialista" rows="3"></textarea>
                           </div>
 
 
@@ -133,7 +145,15 @@ if ($_SESSION['admin']==1)
                             <input type="file" class="form-control" name="imagen4" id="imagen4" accept="image/x-png,image/gif,image/jpeg,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
                           </div>
 
-
+                          <div class="form-group col-lg-8 col-md-6 col-sm-6 col-xs-12">
+                            <label>ACTA:</label>
+                            <input type="hidden" name="imagenactual5" id="imagenactual5">
+                            <a id="archivo5" href="#"></br>
+                            <img src="../public/images/excel.png" alt="ACTA" style="width:50px;height:40px;">
+                            ACTA.xmls
+                            </a>
+                            <input type="file" class="form-control" name="imagen5" id="imagen5" accept="image/x-png,image/gif,image/jpeg,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+                          </div>
 
                          
                           <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -209,7 +229,7 @@ elseif ($_SESSION['gsn_admin']==1)
                           </div>
                           <div class="form-group col-lg-2 col-md-4 col-sm-4 col-xs-12">
                             <label>Regional (*):</label>
-                            <select class="form-control select-picker" name="regional" id="regional" required>
+                            <select class="form-control select-picker" name="regional" id="regional">
                               <option value="CENTRO ORIENTE">CENTRO ORIENTE</option>
                               <option value="COSTA">COSTA</option>
                               <option value="NORORIENTE">NORORIENTE</option>
@@ -218,13 +238,18 @@ elseif ($_SESSION['gsn_admin']==1)
                           </div>
                           <div class="form-group col-lg-2 col-md-6 col-sm-6 col-xs-12">
                             <label>Torrero(*):</label>
-                            <input type="text" class="form-control" name="torrero" id="torrero" required>
+                            <input type="text" class="form-control" name="torrero" id="torrero">
                           </div>
-                          <div class="form-group col-lg-1 col-md-6 col-sm-6 col-xs-12">
+                          <div class="form-group col-lg-2 col-md-6 col-sm-6 col-xs-12">
                             <label>Especialista:</label>
                             <input type="text" class="form-control" name="especialista" id="especialista" maxlength="256" placeholder="Descripción">
                           </div>
-                          <div class="form-group col-lg-1 col-md-6 col-sm-6 col-xs-12">
+                          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <label>Auditor:</label>
+                            <input type="text" class="form-control" name="auditor" id="auditor" maxlength="256" placeholder="Descripción">
+                          </div>
+
+                          <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
                             <label>Auditor:</label>
                             <input type="text" class="form-control" name="auditor" id="auditor" maxlength="256" placeholder="Descripción">
                           </div>
