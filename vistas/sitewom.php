@@ -241,7 +241,7 @@ elseif ($_SESSION['gsn_admin']==1)
                           <div class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <label>Regional (*):</label>
                             <select class="form-control select-picker" name="regional" id="regional" >
-                              <option value="CENTRO ORIENTE">CENTRO ORIENTE</option>
+                              <option value="CENTRO">CENTRO</option>
                               <option value="COSTA">COSTA</option>
                               <option value="NORORIENTE">NORORIENTE</option>
                               <option value="NOROCCIDENTE">NOROCCIDENTE</option>
