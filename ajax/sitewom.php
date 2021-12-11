@@ -10,7 +10,7 @@ if (!isset($_SESSION["nombre"]))
 else
 {
 //Validamos el acceso solo al usuario logueado y autorizado.
-if ($_SESSION['gsn_admin']==1)
+if ($_SESSION['acceso']==1)
 {	
 require_once "../modelos/Sitewom.php";
 
@@ -111,12 +111,136 @@ switch ($_GET["op"]){
 				"1"=>$reg->nombre,
 				"2"=>$reg->auditor,
 				"3"=>$reg->especialista,
-				"4" => "<a href ='../files/dco/" . $reg->imagen . "'target='_blank'>$reg->imagen</a>",
-				"5" => "<a href ='../files/inventario/" . $reg->imagen2 . "' >$reg->imagen2</a>",
-				"6" => "<a href ='../files/preatp/" . $reg->imagen3 . "' >$reg->imagen3</a>",
-				"7" => "<a href ='../files/atp/" . $reg->imagen4 . "' >$reg->imagen4</a>",
-				"8" => "<a href ='../files/actas/" . $reg->imagen5 . "' >$reg->imagen5</a>",
-				"9" => ($reg->condicion) ? '<span class="label bg-green">Aprobado</span>' :
+				"4"=>$reg->regional,
+				"5" => "<a href ='../files/dco/" . $reg->imagen . "'target='_blank'>$reg->imagen</a>",
+				"6" => "<a href ='../files/inventario/" . $reg->imagen2 . "' >$reg->imagen2</a>",
+				"7" => "<a href ='../files/preatp/" . $reg->imagen3 . "' >$reg->imagen3</a>",
+				"8" => "<a href ='../files/atp/" . $reg->imagen4 . "' >$reg->imagen4</a>",
+				"9" => "<a href ='../files/actas/" . $reg->imagen5 ."'target='_blank'>$reg->imagen5</a>",
+				"10" => ($reg->condicion) ? '<span class="label bg-green">Aprobado</span>' :
+				 '<span class="label bg-red">Pendiente</span>'
+ 				
+ 				);
+ 		}
+ 		$results = array(
+ 			"sEcho"=>1, //Información para el datatables
+ 			"iTotalRecords"=>count($data), //enviamos el total registros al datatable
+ 			"iTotalDisplayRecords"=>count($data), //enviamos el total registros a visualizar
+ 			"aaData"=>$data);
+ 		echo json_encode($results);
+
+	break;
+
+}
+//Fin de las validaciones de acceso
+}
+
+elseif ($_SESSION['gsn_admin']==1)
+{	
+require_once "../modelos/Sitewom.php";
+
+$sitewom=new Sitewom();
+
+$idsitewom=isset($_POST["idsitewom"])? limpiarCadena($_POST["idsitewom"]):"";
+$codigo=isset($_POST["codigo"])? limpiarCadena($_POST["codigo"]):"";
+$nombre=isset($_POST["nombre"])? limpiarCadena($_POST["nombre"]):"";
+$regional=isset($_POST["regional"])? limpiarCadena($_POST["regional"]):"";
+$torrero=isset($_POST["torrero"])? limpiarCadena($_POST["torrero"]):"";
+$especialista=isset($_POST["especialista"])? limpiarCadena($_POST["especialista"]):"";
+$auditor=isset($_POST["auditor"])? limpiarCadena($_POST["auditor"]):"";
+$imagen=isset($_POST["imagen"])? limpiarCadena($_POST["imagen"]):"";
+$imagen2=isset($_POST["imagen2"])? limpiarCadena($_POST["imagen2"]):"";
+$imagen3=isset($_POST["imagen3"])? limpiarCadena($_POST["imagen3"]):"";
+$imagen4=isset($_POST["imagen4"])? limpiarCadena($_POST["imagen4"]):"";
+$imagen5=isset($_POST["imagen5"])? limpiarCadena($_POST["imagen5"]):"";
+
+switch ($_GET["op"]){
+	case 'guardaryeditar':
+		
+		
+		if (!file_exists($_FILES['imagen']['tmp_name']) || !is_uploaded_file($_FILES['imagen']['tmp_name'])) {
+			$imagen = $_POST["imagenactual"];
+		} else {
+			$ext = explode(".", $_FILES["imagen"]["name"]);
+			$imagen =  $nombre . "_DCO_". date("d-m-Y") . '.' . end($ext);
+			move_uploaded_file($_FILES["imagen"]["tmp_name"], "../files/dco/" . $imagen);
+		}
+		if (!file_exists($_FILES['imagen2']['tmp_name']) || !is_uploaded_file($_FILES['imagen2']['tmp_name'])) {
+			$imagen2 = $_POST["imagenactual2"];
+		} else {
+			$ext = explode(".", $_FILES["imagen2"]["name"]);
+			$imagen2 = $nombre . "_INVENTARIO" . "_" . date("d-m-Y") . '.' . end($ext);
+			move_uploaded_file($_FILES["imagen2"]["tmp_name"], "../files/inventario/" . $imagen2);
+		}
+		if (!file_exists($_FILES['imagen3']['tmp_name']) || !is_uploaded_file($_FILES['imagen3']['tmp_name'])) {
+			$imagen3 = $_POST["imagenactual3"];
+		} else {
+			$ext = explode(".", $_FILES["imagen3"]["name"]);
+			$imagen3 = $nombre . "_PRE_ATP" . "_" . date("d-m-Y") . '.' . end($ext);
+			move_uploaded_file($_FILES["imagen3"]["tmp_name"], "../files/preatp/" . $imagen3);
+		}
+		if (!file_exists($_FILES['imagen4']['tmp_name']) || !is_uploaded_file($_FILES['imagen4']['tmp_name'])) {
+			$imagen4 = $_POST["imagenactual4"];
+		} else {
+			$ext = explode(".", $_FILES["imagen4"]["name"]);
+			$imagen4 = $nombre . "_ATP" . "_" . date("d-m-Y") . '.' . end($ext);
+			move_uploaded_file($_FILES["imagen4"]["tmp_name"], "../files/atp/" . $imagen4);
+			
+		}
+		if (!file_exists($_FILES['imagen5']['tmp_name']) || !is_uploaded_file($_FILES['imagen5']['tmp_name'])) {
+			$imagen5 = $_POST["imagenactual5"];
+		} else {
+			$ext = explode(".", $_FILES["imagen5"]["name"]);
+			$imagen5 = $nombre . "_ACTA" . "_" . date("d-m-Y") . '.' . end($ext);
+			move_uploaded_file($_FILES["imagen5"]["tmp_name"], "../files/actas/" . $imagen5);
+			
+		}
+		if (empty($idsitewom)){
+			$rspta=$sitewom->insertar($codigo,$nombre,$regional,$torrero,$especialista,$auditor,$imagen,$imagen2,$imagen3,$imagen4,$imagen5);
+			echo $rspta ? "Sitio registrado" : "Sitio no se pudo registrar";
+		}
+		else {
+			$rspta=$sitewom->editar($idsitewom,$codigo,$nombre,$regional,$torrero,$especialista,$auditor,$imagen,$imagen2,$imagen3,$imagen4,$imagen5);
+			echo $rspta ? "Sitio actualizado" : "Sitio no se pudo actualizar";
+		}
+		
+	break;
+
+	case 'desactivar':
+		$rspta=$sitewom->desactivar($idsitewom);
+ 		echo $rspta ? "Sitio Desactivado" : "Sitio no se puede desactivar";
+	break;
+
+	case 'activar':
+		$rspta=$sitewom->activar($idsitewom);
+ 		echo $rspta ? "Sitio activado" : "Sitio no se puede activar";
+	break;
+
+	case 'mostrar':
+		$rspta=$sitewom->mostrar($idsitewom);
+ 		//Codificar el resultado utilizando json
+ 		echo json_encode($rspta);
+	break;
+
+	case 'listar':
+		$rspta=$sitewom->listar();
+ 		//Vamos a declarar un array
+ 		$data= Array();
+
+ 		while ($reg=$rspta->fetch_object()){
+ 			$data[]=array(
+ 				"0"=>($reg->condicion)?'<button class="btn btn-warning" onclick="mostrar('.$reg->idsitewom.')"><i class="fa fa-pencil"></i></button>':
+ 					'<button class="btn btn-warning" onclick="mostrar('.$reg->idsitewom.')"><i class="fa fa-pencil"></i></button>',
+				"1"=>$reg->nombre,
+				"2"=>$reg->auditor,
+				"3"=>$reg->especialista,
+				"4"=>$reg->regional,
+				"5" => "<a href ='../files/dco/" . $reg->imagen . "'target='_blank'>$reg->imagen</a>",
+				"6" => "<a href ='../files/inventario/" . $reg->imagen2 . "' >$reg->imagen2</a>",
+				"7" => "<a href ='../files/preatp/" . $reg->imagen3 . "' >$reg->imagen3</a>",
+				"8" => "<a href ='../files/atp/" . $reg->imagen4 . "' >$reg->imagen4</a>",
+				"9" => "<a href ='../files/actas/" . $reg->imagen5 ."'target='_blank'>$reg->imagen5</a>",
+				"10" => ($reg->condicion) ? '<span class="label bg-green">Aprobado</span>' :
 				 '<span class="label bg-red">Pendiente</span>'
  				
  				);

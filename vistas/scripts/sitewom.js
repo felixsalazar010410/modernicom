@@ -72,6 +72,19 @@ function cancelarform()
 //Función Listar
 function listar()
 {
+
+	let date = new Date()
+	
+	let day = date.getDate()
+	let month = date.getMonth() + 1
+	let year = date.getFullYear()
+	
+	if(month < 10){
+	  console.log(`${day}-0${month}-${year}`)
+	}else{
+	  console.log(`${day}-${month}-${year}`)
+	}
+
 	tabla=$('#tbllistado').dataTable(
 	{   
 		"orderCellsTop": true,
@@ -86,6 +99,7 @@ function listar()
 		ordering: false,
 	    buttons: [		          
 			{
+				
                 extend: 'copyHtml5',
                 text:'Copiar',
                 exportOptions: {
@@ -93,9 +107,10 @@ function listar()
                 }
             },
             {
+				title: 'CONSOLIDADO SITIOS_DOCUMENTACION_GSN_'+`${day}-0${month}-${year}`,
                 extend: 'excelHtml5',
                 exportOptions: {
-                    columns: [2,3,4,5,6,7]
+                    columns: [1,2,3,4,5,6,7,8,9.10]
                 }
             },
             {

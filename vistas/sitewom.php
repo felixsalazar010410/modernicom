@@ -36,6 +36,7 @@ if ($_SESSION['admin']==1)
                             <th>Nombre</th>
                             <th>Auditor</th>
                             <th>Observaciones</th>
+                            <th>Regional</th>
                             <th>Dco</th>
                             <th>Inventario</th>
                             <th>Pre-Atp</th>
@@ -50,6 +51,7 @@ if ($_SESSION['admin']==1)
                             <th>Nombre</th>
                             <th>Auditor</th>
                             <th>Observaciones</th>
+                            <th>Regional</th>
                             <th>Dco</th>
                             <th>Inventario</th>
                             <th>Pre-Atp</th>
@@ -90,6 +92,7 @@ if ($_SESSION['admin']==1)
                               <option value="CHRISTIAN BARRIGA">CHRISTIAN BARRIGA</option>
                               <option value="DIEGO CRISTANCHO">DIEGO CRISTANCHO</option>
                               <option value="JHONNATTAN ACOSTA">JHONNATTAN ACOSTA</option>
+                              <option value="MANUEL BONETTACT">MANUEL BONETTACT</option>
                             </select>
                           </div>
 
@@ -149,10 +152,10 @@ if ($_SESSION['admin']==1)
                             <label>ACTA:</label>
                             <input type="hidden" name="imagenactual5" id="imagenactual5">
                             <a id="archivo5" href="#"></br>
-                            <img src="../public/images/excel.png" alt="ACTA" style="width:50px;height:40px;">
-                            ACTA.xmls
+                            <img src="../public/images/pdf.png" alt="ACTA" style="width:50px;height:40px;">
+                            ACTA.pdf
                             </a>
-                            <input type="file" class="form-control" name="imagen5" id="imagen5" accept="image/x-png,image/gif,image/jpeg,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+                            <input type="file" class="form-control" name="imagen5" id="imagen5" accept="application/pdf,image/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/.pdf">
                           </div>
 
                          
@@ -199,6 +202,7 @@ elseif ($_SESSION['gsn_admin']==1)
                             <th>Nombre</th>
                             <th>Auditor</th>
                             <th>Observaciones</th>
+                            <th>Regional</th>
                             <th>Dco</th>
                             <th>Inventario</th>
                             <th>Pre-Atp</th>
@@ -213,6 +217,7 @@ elseif ($_SESSION['gsn_admin']==1)
                             <th>Nombre</th>
                             <th>Auditor</th>
                             <th>Observaciones</th>
+                            <th>Regional</th>
                             <th>Dco</th>
                             <th>Inventario</th>
                             <th>Pre-Atp</th>
@@ -312,8 +317,8 @@ elseif ($_SESSION['gsn_admin']==1)
                             <label>ACTA:</label>
                             <input type="hidden" name="imagenactual5" id="imagenactual5">
                             <a id="archivo5" href="#"></br>
-                            <img src="../public/images/excel.png" alt="ACTA" style="width:50px;height:40px;">
-                            ACTA.xmls
+                            <img src="../public/images/pdf.png" alt="ACTA" style="width:50px;height:40px;">
+                            ACTA.pdf
                             </a>
                             <input type="file" class="form-control" name="imagen5" id="imagen5" accept="image/x-png,image/gif,image/jpeg,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
                           </div>
